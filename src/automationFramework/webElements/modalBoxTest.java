@@ -43,6 +43,7 @@ public class modalBoxTest {
 
 	@After
 	public void tearDown() {
+
 	}
 
 	@Test
