@@ -14,9 +14,9 @@ public class pageObject {
 		this.wait = wait;
 	}
 	
-//	public int checkIfElementIsPresent(By by){
-//		return driver.findElement(by).getSize().getHeight();
-//	}
+	public int getElementHeight(By by){
+		return driver.findElement(by).getSize().getHeight();
+	}
 //	
 //	public boolean checkIfElementIsVisible(By by) {
 //		return driver.findElement(by).isDisplayed();

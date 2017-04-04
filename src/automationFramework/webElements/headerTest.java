@@ -18,9 +18,7 @@ public class headerTest {
 	public static WebDriverWait wait;
 	
 	private static String baseURL;
-	private Boolean imagePresent;
-	private Boolean phoneFormat;
-	private Boolean contactButton;
+	private Boolean isValid;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -40,28 +38,52 @@ public class headerTest {
 		driver.quit();
 	}
 
-	
+	//PICS
 	@Test
 	public void header_shouldContainVisibleBannerPicture() {
-		imagePresent = objHeader.checkIfImagePresent();
-		Assert.assertTrue(imagePresent);
+		isValid = objHeader.checkIfImagePresent(objHeader.getBannerFileLocator());
+		Assert.assertTrue(isValid);
 	}
 	
 	@Test
+	public void header_shouldContainLogoPicture() {
+		isValid = objHeader.checkIfImagePresent(objHeader.getLogoFileLocator());
+		Assert.assertTrue(isValid);
+	}
+	
+	//Texts
+	@Test
 	public void header_shouldContainPhoneNumber() {
-		phoneFormat = objHeader.checkIfPhoneNumberHasCorrectFormat();
-		Assert.assertTrue(phoneFormat);
+		isValid = objHeader.checkIfTextPresent(objHeader.getPhoneLocator(), objHeader.getPhoneNumberPattern());
+		Assert.assertTrue(isValid);
 	}
 	
 	@Test
 	public void header_shouldContainContactUsButton() {
-		contactButton = objHeader.checkIfContactUsTextPresent();
-		Assert.assertTrue(contactButton);
+		isValid = objHeader.checkIfTextPresent(objHeader.getContactUsLocator(), objHeader.getContactUsTextPattern());
+		Assert.assertTrue(isValid);
 	}
 	
+	@Test
 	public void header_shouldContainSignInButton() {
-		contactButton = objHeader.checkIfSignInTextPresent();
-		Assert.assertTrue(contactButton);
+		isValid = objHeader.checkIfTextPresent(objHeader.getSignInLocator(), objHeader.getSignInTextPattern());
+		Assert.assertTrue(isValid);
 	}
-
+		
+	@Test
+	public void header_shouldContainSearchForm() {
+		objHeader.checkIfElementIsPresent();
+	}
+//	
+//	@Test
+//	public void header_shouldContainSearchButton() {
+//		
+//	}
+//	
+//	@Test
+//	public void header_shouldContainCart() {
+//		
+//	}
+	
+	
 }
