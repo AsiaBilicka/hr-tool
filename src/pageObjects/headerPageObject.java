@@ -11,7 +11,6 @@ public class headerPageObject extends pageObject{
 	private WebElement webElement;
 	private String string;
 	private Boolean isValid;
-	private int height;
 	
 	//Locators
 	private By bannerFileLocator = By.xpath("//*[@id='header']/div[1]/div/div/a/img");
@@ -19,8 +18,11 @@ public class headerPageObject extends pageObject{
 	private By phoneLocator = By.xpath("//*[@id='header']/div[2]/div/div/nav/span/strong");
 	private By contactUsLocator = By.xpath("//*[@id='contact-link']/a");
 	private By signInLocator = By.xpath("//*[@id='header']/div[2]/div/div/nav/div[1]/a");
+	private By searchFormLocator = By.id("search_query_top");
+	private By searchButtonLocator = By.xpath("//*[@id='searchbox']/button");
+	private By cartLocator = By.xpath("//*[@id='header']/div[3]/div/div/div[3]/div/a");
 	
-	//Patterns
+	//Patterns and expected values
 	private String phoneNumberPattern = "\\d{4}-\\d{3}-\\d{3}";
 	private String contactUsTextPattern = "Contact us";
 	private String signInTextPattern = "Sign in";
@@ -42,7 +44,7 @@ public class headerPageObject extends pageObject{
 	}
 	
 	public Boolean checkIfElementIsPresent(By by) {
-		height = getElementHeight(by);
+		return isElementPresent(by)>0;
 	}
 
 	
@@ -84,4 +86,17 @@ public class headerPageObject extends pageObject{
 	public String getContactUsTextPattern() {
 		return contactUsTextPattern;
 	}
+
+	public By getSearchFormLocator() {
+		return searchFormLocator;
+	}
+
+	public By getSearchButtonLocator() {
+		return searchButtonLocator;
+	}
+
+	public By getCartLocator() {
+		return cartLocator;
+	}
+
 }

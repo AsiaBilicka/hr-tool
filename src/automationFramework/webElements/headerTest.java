@@ -69,21 +69,24 @@ public class headerTest {
 		isValid = objHeader.checkIfTextPresent(objHeader.getSignInLocator(), objHeader.getSignInTextPattern());
 		Assert.assertTrue(isValid);
 	}
-		
+	
+	//Elements
 	@Test
 	public void header_shouldContainSearchForm() {
-		objHeader.checkIfElementIsPresent();
+		isValid = objHeader.checkIfElementIsPresent(objHeader.getSearchFormLocator());
+		Assert.assertTrue(isValid);
 	}
-//	
-//	@Test
-//	public void header_shouldContainSearchButton() {
-//		
-//	}
-//	
-//	@Test
-//	public void header_shouldContainCart() {
-//		
-//	}
 	
+	@Test
+	public void header_shouldContainSearchButton() {
+		isValid = objHeader.checkIfElementIsPresent(objHeader.getSearchButtonLocator());
+		Assert.assertTrue(isValid);
+	}
+	
+	@Test
+	public void header_shouldContainCart() {
+		isValid = objHeader.checkIfElementIsPresent(objHeader.getCartLocator());
+		Assert.assertTrue(isValid);
+	}
 	
 }

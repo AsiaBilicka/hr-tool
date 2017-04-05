@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 //import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,8 +15,8 @@ public class pageObject {
 		this.wait = wait;
 	}
 	
-	public int getElementHeight(By by){
-		return driver.findElement(by).getSize().getHeight();
+	public int isElementPresent(By by){
+		return driver.findElements(by).size();
 	}
 //	
 //	public boolean checkIfElementIsVisible(By by) {
@@ -25,8 +26,8 @@ public class pageObject {
 	public String getElementText(By by){
 		return driver.findElement(by).getText();
 	}
-//
-//	public void waitForElement(By by){
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-//	}
+
+	public void waitForElement(By by){
+		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+	}
 }
